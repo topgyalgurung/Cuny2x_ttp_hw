@@ -1,0 +1,32 @@
+body{
+    font-family: fantasy;
+    background-size: cover;
+    text-align: center;
+
+}
+.button{
+    background-color: black;
+    color: white;
+    display:inline-block;
+    cursor: pointer;
+    margin:4px 2px;
+    font-size: 16px;
+	
+}
+#element{
+    font-size: 60px;
+}
+input{
+    border:2px double;
+   padding:5px 10px;
+box-sizing: border-box;
+}
+
+input[type=text]{
+    background-color: brown;
+    color:white;
+}
+.center {
+    align-content: center;
+	background-color: green;;
+}
