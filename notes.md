@@ -1,0 +1,3 @@
+- Don't use `var` when declaring variables
+- Use better names than `myFunc`, and `func2`
+- Use triple equals instead of double equals
