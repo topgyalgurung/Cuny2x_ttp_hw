@@ -16,6 +16,8 @@ class Display extends Component{
     lastName:this.props.lastName,
     showComponent:false, //for different page
     }
+    //preserve initial state in new object
+    this.baseState=this.state;
     this.handleChange=this.handleChange.bind(this);
     //this.handlefirstChange=this.handlefirstChange.bind(this);
     //this.handlelastChange=this.handlelastChange.bind(this);
@@ -56,12 +58,13 @@ class Display extends Component{
        <div id="last">{document.write("Last Name: ",this.state.lastName)}</div>
     </div> );
   };
-  delete(){
-    this.setState({
-      firstName:this.props.firstName,
-      lastName:this.props.lastName,
-      showComponent:false, 
-    })
+
+  delete=()=>{
+    //reset form
+    this.setState(this.baseState)
+      // firstName:this.props.firstName,
+      // lastName:this.props.lastName,
+      //showComponent:false, 
     return (<div><Display/></div>)
   }
  
