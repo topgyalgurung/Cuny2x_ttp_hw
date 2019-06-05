@@ -1,6 +1,4 @@
-# assignment using React JS 
+# TTP Residency Hunter College Summer 2019 assignment  
 
-# Exercise 1- Form Edit
 
-# Exercise 2- Folder Contents Toggle 
 
