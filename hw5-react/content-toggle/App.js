@@ -1,100 +1,67 @@
-/*
-Topgyal Gurung
-Form Edit Exercise React JS 
+// Topgyal Gurung
+//TTP Residency Hunter College Summer 2019
+//Folder Contents Toggle
+// React JS 
 
-*/
-
-import React, {Component }from 'react';
+import React from 'react';
+//import logo from './logo.svg';
 import './App.css';
 
-class Display extends Component{
+class Folder extends React.Component{
   constructor(props){
-  super(props);
+    super(props);
   this.state={
-    // user first and last name
-    firstName:this.props.firstName,
-    lastName:this.props.lastName,
-    showComponent:false, //for different page
+    folder:{
+      name:this.props.name,
+      file:{
+        n1:'file3',
+        n2:'file1',
+        n3:'file3',
+      }
+  },
+  isHidden:false, //all are visible at first
+  }
+  this.toggle=this.toggle.bind(this);
+}
+toggle(){
+  this.setState({
+    //everytime toggle pressed state of isHidden is 
+    //reversed i.e. T->F or  F->T
+    isHidden:!this.state.isHidden,
+  });
+}
+render(){
+  return(
+    <div>
+    {/* conditional:  */}
+    {this.state.isHidden?
+    //if hidden true
+    <div>
+      {/* jst display folder name  */}
+      {/* should figure out  to write below line just once */}
+     <h1> Folder: {this.state.folder.name}  </h1>
+    </div>
+    :
+    // else display all
+     <div> <h1>Folder: {this.state.folder.name}</h1>
+     <h3>File: {this.state.folder.file.n1}</h3>
+     <h3>File: {this.state.folder.file.n2}</h3>
+     <h3>File: {this.state.folder.file.n3}</h3>
+     </div>
     }
-    this.handleChange=this.handleChange.bind(this);
-    //this.handlefirstChange=this.handlefirstChange.bind(this);
-    //this.handlelastChange=this.handlelastChange.bind(this);
-    this.onButtonClick=this.onButtonClick.bind(this);
-    this.save=this.save.bind(this);
-    this.delete=this.delete.bind(this);
-  }
-  //Edit button onClick 
-  onButtonClick(){
-    this.setState({
-      showComponent:true, //so we can implement conditional
-    });
-  }
-  //controlled component
-  handleChange(event){
-    this.setState({
-      [event.target.name]:event.target.value
-    });
-  }
-  // handlefirstChange(event){
-  //   this.setState({
-  //     firstName:event.target.value,
-  //   });
-  // }
-  // handlelastChange(event){
-  //   this.setState({
-  //     lastName:event.target.value,
-  //   })
-  // }
-  save(){
-    this.setState({
-      firstName:this.state.firstName,
-      lastName:this.state.lastName,
-      showComponent:false,
-    })
-     return( <div>
-       <div id="first"><h1> {document.write("First Name: ",this.state.firstName,", ")}</h1></div><br/>
-       <div id="last">{document.write("Last Name: ",this.state.lastName)}</div>
-    </div> );
-  };
-  delete(){
-    this.setState({
-      firstName:this.props.firstName,
-      lastName:this.props.lastName,
-      showComponent:false, 
-    })
-    return (<div><Display/></div>)
-  }
- 
-  render(){
-    return(
-      <div>
-       { this.state.showComponent?
-        // if showComponent true 
-       <div>
-         {/* Forms- interactive props, if value defined must define onchange handler */}
-        First Name: <input name="firstName" value={this.state.firstName} onChange={this.handleChange}></input><br/>
-        Last Name: <input name="lastName"value={this.state.lastName} onChange={this.handleChange}></input><br/>
-         <button id="save" onClick={this.save}>Save</button>
-        <button id="cancel" onClick={this.delete}>Delete</button>
-      </div>
-      // else i.e. if showComponent false
-      :
-      <div>
-        <div id="name">First name: {this.state.firstName} </div>
-        <div id="name">Last Name: {this.state.lastName}</div>
-       <button id="button" onClick={this.onButtonClick}>Edit</button>
-       </div>
-       }
-       </div>
-    )
-  }
+    {/* toggle button will always there */}
+    <button id="button" onClick={this.toggle}>Toggle</button>
+    </div>
+  )
 }
 
+}
 function App() {
   return (
     <div className="App">
-      <Display firstName="Topgyal" lastName="Gurung"/>   
-    </div>)
-};
+        <Folder name="Home"/>
+    </div>
+  );
+}
 
 export default App;
