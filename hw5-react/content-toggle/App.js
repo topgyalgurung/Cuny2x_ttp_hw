@@ -24,11 +24,11 @@ class Folder extends React.Component{
   this.toggle=this.toggle.bind(this);
 }
 toggle(){
-  this.setState({
+  this.setState((state)=>({
     //everytime toggle pressed state of isHidden is 
     //reversed i.e. T->F or  F->T
-    isHidden:!this.state.isHidden,
-  });
+    isHidden:!state.isHidden,
+  }));
 }
 render(){
   return(
