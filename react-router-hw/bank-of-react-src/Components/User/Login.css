@@ -1,0 +1,22 @@
+form{
+    font-size: 25px;
+}
+label{
+    display:inline-block;
+    text-align:left;
+}
+input[type=number]:focus{
+    border-color:#333;
+}
+button{
+    border-radius: 12px;  
+}
+button:hover{
+    box-shadow: 0 2px #666;
+    transform: translateY(1px);
+}
+div{
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+}

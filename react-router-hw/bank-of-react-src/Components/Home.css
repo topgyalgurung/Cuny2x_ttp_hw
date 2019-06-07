@@ -1,0 +1,10 @@
+.Home{
+    text-align: center;
+}
+#content{
+    align-items: center;
+    font-size: 50px;
+}
+#tags{
+    font-family:'Open Sans', sans-serif;
+}
